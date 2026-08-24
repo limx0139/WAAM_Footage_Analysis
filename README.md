@@ -75,14 +75,21 @@ This directory is organised by the method used to track a moving ROI across the 
 </video>
 </p>
 
+### ThresholdTracking Folder
+
 - The folder ThresholdTracking contains the scripts thresholdTracking.py and trackAllFiles.py. 
   - This tracks the region of the image that exceeds a threshold temperature,  stabilising this region by assuming the leftmost point in this area is a fixed point.
+
+### OpticalFLow Folder
+
+
 
 - The folder OpticalFLow tracks the path of a point of interest in the welding well with optical flow algorithm.
   - An exponential transform on the temperature data is used for the optical flow to provide more data points representing higher temperatures.
   - While this is the best method by far, it is not foolproof as the welding well is chaotic, and a spark flying past the tracked point of interest may be enough to disrupt tracking.
   - The ROI is a 100 by 50 rectangle centered on the point of interest.
   - The 's' key is binded to deploying a static ROI where the current ROI is currently situated, to monitor it cooling down.
+
 
 
 
@@ -94,6 +101,7 @@ This directory is organised by the method used to track a moving ROI across the 
 | OpticalFlow\opticalFlowAllPoints.py           | Run the optical flow algorithm on all points in the image  |
 | OpticalFlow\opticalFlowTracker.py           | Run the optical flow algorithm, tracing the path of a good point in the image, when temperature is detected above 800.  |
 | OpticalFlow\trackAllFiles.py                | Run the optical flow algorithm on all files in VideoSourceFiles\WAAM     |
+| OpticalFlow\opticalFlowTrackerFromAVI.py    | Run the optical flow algorithm from a specified mp4/avi file. The default is input.avi     |
 
 All above files save video files as input.avi, output.avi and ROI.avi. These converted video files for the input, the output, containing where the region of interest is, and the ROI respectively.
 
